@@ -1,0 +1,24 @@
+<app-header (navToggled)="snav.toggle()"></app-header>
+<mat-sidenav-container>
+  <mat-sidenav #snav [mode]="'push'" style="width: 100%">
+    <mat-nav-list
+      style="
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      "
+    >
+      <a style="text-align: center">Acceuil</a>
+      <a style="text-align: center">Nos Bière</a>
+      <a style="text-align: center">Contact</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="container">
+      <div style="height: 500px">HELLO WORLD !</div>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<app-footer></app-footer>

@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - "/Users/mrzatn/Documents/beer_hops/SERVER/beer_hops_api:/root/app"
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=beer_hops
+      - DB_USER=beer_hops_api
+      - DB_PASS=ilovebeer
+    depends_on:
+      - db
+  db:
+    image: "postgres:13-alpine"
+    environment:
+      - POSTGRES_DB=beer_hops
+      - POSTGRES_USER=beer_hops_api
+      - POSTGRES_PASSWORD=ilovebeer
